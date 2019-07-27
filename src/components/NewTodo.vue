@@ -21,20 +21,26 @@
 
 <script>
 export default {
+  data () {
+    return {
+      title: '',
+      dateExp: ''
+    };
+  },
   methods: {
     addTodo () {
       const newTodo = {
-        id: '',
+        id: this._generateUNID(),
         title: this.title,
         dateExp: this.dateExp,
         completed: false
       };
-      console.log( 'TCL: addTodo -> newTodo', newTodo );
-
+      this.$store.dispatch( 'MUTATE_TODO_NEW', newTodo );
     // this.$emit( 'add-todo', newTodo );
     // this.title = '';
     },
-    _generateUNID() {
+    _generateUNID () {
+      /* eslint-disable-next-line */
       return ( [1e7]+-1e3+-4e3+-8e3+-1e11 ).replace( /[018]/g,c=>( c^crypto.getRandomValues( new Uint8Array( 1 ) )[0]&15 >> c/4 ).toString( 16 ) );
     }
   }
