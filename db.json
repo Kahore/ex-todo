@@ -1,9 +1,45 @@
 {
   "todos": [
     {
-      "id": "05b64057-2c04-4647-b7f5-10c292847957",
-      "title": "my todo",
+      "id": "1614cd2c-d549-4711-a345-f4db0e8463a9",
+      "title": "日本",
       "dateExp": "2019-07-31",
+      "completed": false
+    },
+    {
+      "id": "209d1879-541b-415e-9aeb-7d0285b68a9e",
+      "title": "Удаление todo",
+      "dateExp": "2019-07-27",
+      "completed": true
+    },
+    {
+      "id": "97139853-6ca0-4814-8231-d9e81c97d5ba",
+      "title": "Reset form after submit",
+      "dateExp": "2019-07-28",
+      "completed": false
+    },
+    {
+      "id": "844c863d-3da9-48fa-a02b-d0556b885e5a",
+      "title": "Media query for small screen-size",
+      "dateExp": "2019-07-28",
+      "completed": false
+    },
+    {
+      "id": "35ec66f5-dab2-4330-aeea-1ecc67116e58",
+      "title": "Edit todo",
+      "dateExp": "2019-07-28",
+      "completed": false
+    },
+    {
+      "id": "9ded9390-0fa7-41f2-afd2-81bea6429c7d",
+      "title": "Fix crap in page-proof below",
+      "dateExp": "2019-07-28",
+      "completed": true
+    },
+    {
+      "id": "b3018786-3b8c-4783-a884-64e7d58e9bb4",
+      "title": "Add info to about page",
+      "dateExp": "2019-07-28",
       "completed": false
     }
   ]

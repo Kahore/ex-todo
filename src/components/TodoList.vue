@@ -1,11 +1,16 @@
 <template>
 	<div class="todos-list">
-		<div v-for="(todo, id ) in todos" :key="id">
-			<div :id="todo.id" class="todos-list_block">
+		<div
+			v-for="(todo, id ) in todos"
+			:key="id"
+			class="todos-list_block"
+			:class="{ 'todos-list_block__done': todo.completed }"
+		>
+			<div :id="todo.id">
 				<input type="checkbox" :value="todo.id" @change="markComplete( todo )" v-model="completedTODO" />
-				<span>{{ todo.title }}</span>
-				<span>{{ todo.dateExp }}</span>
-				<button class="btn btn-del" @click="delTodo(todo.id)">x</button>
+				<span class="todos-list_block-text">{{ todo.title }}</span>
+				<span class="todos-list_block-text todos-list_block-text--right">{{ todo.dateExp }}</span>
+				<button class="btn-del" @click="delTodo(todo.id)"></button>
 			</div>
 		</div>
 	</div>
@@ -44,4 +49,46 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.todos-list_block {
+	position: relative;
+	font-size: 24px;
+	border-bottom: 1px solid #ededed;
+	text-align: left;
+	&:hover .btn-del {
+		display: inline-block;
+	}
+	&-text {
+		display: inline-flex;
+		word-break: break-word;
+		transition: color 0.4s;
+		max-width: 260px;
+		margin-left: 40px;
+		&--right {
+			float: right;
+			padding-right: 60px;
+		}
+	}
+	&__done {
+		text-decoration: line-through;
+	}
+}
+.btn-del {
+	display: none;
+	position: absolute;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 30px;
+	color: #cc9a9a;
+	-webkit-transition: color 0.2s ease-out;
+	transition: color 0.2s ease-out;
+	&:hover {
+		color: #af5b5e;
+		cursor: pointer;
+	}
+	&:after {
+		content: "×";
+	}
+}
 </style>
