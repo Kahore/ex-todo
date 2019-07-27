@@ -12,14 +12,8 @@ let store;
 beforeEach( () => {
   store = new Vuex.Store( {
     state: {
-      todos: [
-        {
-          'id': '098cf784-e75a-4d1d-b64e-d6b4fb2f3ae6',
-          'title': 'my first todo',
-          'dateExp': '2019-07-27',
-          'completed': false
-        }
-      ]
+      todos: [],
+      todosCompleted: []
     },
     mutations: {
       MUTATE_TODO_NEW: todos.mutations.MUTATE_TODO_NEW
@@ -34,6 +28,9 @@ describe( 'modules/todos.js getters', () => {
   it( 'should return Array of todos', () => {
     expect( todos.getters.GET_TODOS( store.state ) ).toBe( store.state.todos );
   } );
+  it( 'should return Array of cpl todos', () => {
+    expect( todos.getters.GET_TODO_COMPLETED( store.state ) ).toBe( store.state.todosCompleted );
+  } );
 } );
 
 const newTodos = {
@@ -42,19 +39,66 @@ const newTodos = {
   'dateExp': '2019-07-27',
   'completed': false
 };
-
+const TODOS_LOAD = [
+  {
+    'id': '098cf784-e75a-4d1d-b64e-d6b4fb2f3a88',
+    'title': 'my first todo',
+    'dateExp': '2019-07-27',
+    'completed': true
+  },
+  {
+    'id': '098cf784-e75a-4d1d-b64e-d6b4fb2f3a77',
+    'title': 'my first todo',
+    'dateExp': '2019-07-27',
+    'completed': false
+  }
+];
+const TODOS_LOAD_EMPTY = [];
 describe( 'modules/todos.js mutations', () => {
   it( 'should push new todo to todos', () => {
     todos.mutations.MUTATE_TODO_NEW( store.state, newTodos );
-    expect( store.state.todos ).toHaveLength( 2 );
+    expect( store.state.todos ).toHaveLength( 1 );
+  } );
+  it( 'should push all received todo to todos', () => {
+    todos.mutations.LOAD_TODO( store.state, TODOS_LOAD );
+    expect( store.state.todos ).toHaveLength( TODOS_LOAD.length );
+  } );
+  it( 'should pass if there is no todos', () => {
+    todos.mutations.LOAD_TODO( store.state, TODOS_LOAD_EMPTY );
+    expect( store.state.todos ).toHaveLength( TODOS_LOAD_EMPTY.length );
+  } );
+  it( 'should push todo to todosCompleted if cmpl is true', () => {
+    todos.mutations.LOAD_TODO( store.state, TODOS_LOAD );
+    expect( store.state.todosCompleted ).toHaveLength( 1 );
+  } );
+  it( 'should remove todo from to todosCompleted if cmpl is false', () => {
+    newTodos.completed = true;
+    todos.mutations.MUTATE_TODO_MARK( store.state, newTodos );
+    expect( store.state.todosCompleted ).toHaveLength( 1 );
+
+    newTodos.completed = false;
+    todos.mutations.MUTATE_TODO_MARK( store.state, newTodos );
+    expect( store.state.todosCompleted ).toHaveLength( 0 );
   } );
 } );
 
 describe( 'modules/todos.js actions', () => {
   it( 'test MUTATE_TODO_NEW using a mock mutation but real store', () => {
+    let commit = jest.fn();
     // TODO: check url
-    const commit = jest.fn();
     todos.actions.MUTATE_TODO_NEW( { commit }, newTodos );
     expect( commit ).toHaveBeenCalledWith( 'MUTATE_TODO_NEW', newTodos );
+  } );
+  // it( 'test LOAD_TODO using a mock mutation but real store', () => {
+  //   // TODO: check url
+  //   let _commit = jest.fn();
+  //   todos.actions.LOAD_TODO( { _commit } );
+  //   expect( _commit ).toHaveBeenCalledWith( 'LOAD_TODO', TODOS_LOAD );
+  // } );
+  it( 'test MUTATE_TODO_MARK using a mock mutation but real store', () => {
+    let commit = jest.fn();
+    // TODO: check url
+    todos.actions.MUTATE_TODO_MARK( { commit }, newTodos );
+    expect( commit ).toHaveBeenCalledWith( 'MUTATE_TODO_MARK', newTodos );
   } );
 } );

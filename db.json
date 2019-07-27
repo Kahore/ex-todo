@@ -1,27 +1,9 @@
 {
   "todos": [
     {
-      "id": "098cf784-e75a-4d1d-b64e-d6b4fb2f3ae6",
+      "id": "c6d8eeda-cb58-46b9-9918-f8a07b0f172a",
       "title": "my first todo",
       "dateExp": "2019-07-27",
-      "completed": false
-    },
-    {
-      "id": "1c8da1c5-f00d-4ce1-b241-34aa446212e0",
-      "title": "some new todo",
-      "dateExp": "2019-07-29",
-      "completed": false
-    },
-    {
-      "id": "41dffd0d-47a3-415a-8332-c601bfb1a586",
-      "title": "some new todo [1]",
-      "dateExp": "2019-07-31",
-      "completed": false
-    },
-    {
-      "id": "a4347096-00e5-4583-b265-dadb361d889d",
-      "title": "some new todo 2",
-      "dateExp": "2019-07-31",
       "completed": false
     },
     {
