@@ -1,15 +1,9 @@
 {
   "todos": [
     {
-      "id": "c6d8eeda-cb58-46b9-9918-f8a07b0f172a",
-      "title": "my first todo",
-      "dateExp": "2019-07-27",
-      "completed": false
-    },
-    {
-      "id": "128cf784-e75a-4d1d-b64e-d6b4fb2f3bf1",
-      "title": "my new todo",
-      "dateExp": "2019-07-27",
+      "id": "05b64057-2c04-4647-b7f5-10c292847957",
+      "title": "my todo",
+      "dateExp": "2019-07-31",
       "completed": false
     }
   ]

@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">79.17% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>19/24</span>
+        <span class='fraction'>25/30</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>5/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.33% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/12</span>
+        <span class='fraction'>10/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">82.61% </span>
+        <span class="strong">86.21% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>19/23</span>
+        <span class='fraction'>25/29</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -115,7 +115,23 @@
 70
 71
 72
-73</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,10 +148,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,6 +164,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,8 +187,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,6 +201,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -218,15 +250,22 @@ const mutations = {
     } else {
       state.todosCompleted.splice( idx, 1 );
     }
+  },
+  MUTATE_TODO_DELETE: ( state, payload ) =&gt; {
+    let idx = state.todos.findIndex( function ( block ) {
+      return block.id === payload;
+    } );
+    <span class="missing-if-branch" title="else path not taken" >E</span>if ( idx !== -1 ) {
+      state.todos.splice( idx, 1 );
+    }
   }
-&nbsp;
 };
 const actions = {
   MUTATE_TODO_NEW: ( { commit }, payload ) =&gt; {
     fetch( 'http://localhost:3000/todos', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify( payload )
@@ -236,20 +275,29 @@ const actions = {
   LOAD_TODO: <span class="fstat-no" title="function not covered" >( </span>{ commit } ) =&gt; {
 <span class="cstat-no" title="statement not covered" >    fetch( 'http://localhost:3000/todos', {</span>
       method: 'GET'
-    } ).then( <span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json() </span>).then( <span class="fstat-no" title="function not covered" >da</span>ta =&gt; {
-<span class="cstat-no" title="statement not covered" >      commit( 'LOAD_TODO', data );</span>
-    } ).catch( <span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.error( error ) </span>); ;
+    } )
+      .then( <span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json() </span>)
+      .then( <span class="fstat-no" title="function not covered" >da</span>ta =&gt; {
+<span class="cstat-no" title="statement not covered" >        commit( 'LOAD_TODO', data );</span>
+      } )
+      .catch( <span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.error( error ) </span>);
   },
   MUTATE_TODO_MARK: ( { commit }, payload ) =&gt; {
     fetch( 'http://localhost:3000/todos/' + payload.id, {
       method: 'PUT',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify( payload )
     } );
     commit( 'MUTATE_TODO_MARK', payload );
+  },
+  MUTATE_TODO_DELETE: ( { commit }, payload ) =&gt; {
+    fetch( 'http://localhost:3000/todos/' + payload, {
+      method: 'DELETE'
+    } );
+    commit( 'MUTATE_TODO_DELETE', payload );
   }
 };
 &nbsp;
@@ -265,7 +313,7 @@ export default {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jul 27 2019 18:42:47 GMT+0700 (Krasnoyarsk Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jul 27 2019 22:03:51 GMT+0800 (Красноярское время (зима))
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

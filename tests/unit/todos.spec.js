@@ -29,28 +29,30 @@ describe( 'modules/todos.js getters', () => {
     expect( todos.getters.GET_TODOS( store.state ) ).toBe( store.state.todos );
   } );
   it( 'should return Array of cpl todos', () => {
-    expect( todos.getters.GET_TODO_COMPLETED( store.state ) ).toBe( store.state.todosCompleted );
+    expect( todos.getters.GET_TODO_COMPLETED( store.state ) ).toBe(
+      store.state.todosCompleted
+    );
   } );
 } );
 
 const newTodos = {
-  'id': '128cf784-e75a-4d1d-b64e-d6b4fb2f3bf1',
-  'title': 'my new todo',
-  'dateExp': '2019-07-27',
-  'completed': false
+  id: '128cf784-e75a-4d1d-b64e-d6b4fb2f3bf1',
+  title: 'my new todo',
+  dateExp: '2019-07-27',
+  completed: false
 };
 const TODOS_LOAD = [
   {
-    'id': '098cf784-e75a-4d1d-b64e-d6b4fb2f3a88',
-    'title': 'my first todo',
-    'dateExp': '2019-07-27',
-    'completed': true
+    id: '098cf784-e75a-4d1d-b64e-d6b4fb2f3a88',
+    title: 'my first todo',
+    dateExp: '2019-07-27',
+    completed: true
   },
   {
-    'id': '098cf784-e75a-4d1d-b64e-d6b4fb2f3a77',
-    'title': 'my first todo',
-    'dateExp': '2019-07-27',
-    'completed': false
+    id: '098cf784-e75a-4d1d-b64e-d6b4fb2f3a77',
+    title: 'my first todo',
+    dateExp: '2019-07-27',
+    completed: false
   }
 ];
 const TODOS_LOAD_EMPTY = [];
@@ -80,6 +82,14 @@ describe( 'modules/todos.js mutations', () => {
     todos.mutations.MUTATE_TODO_MARK( store.state, newTodos );
     expect( store.state.todosCompleted ).toHaveLength( 0 );
   } );
+  it( 'should remove todo from to todos', () => {
+    todos.mutations.LOAD_TODO( store.state, TODOS_LOAD );
+    todos.mutations.MUTATE_TODO_DELETE(
+      store.state,
+      '098cf784-e75a-4d1d-b64e-d6b4fb2f3a77'
+    );
+    expect( store.state.todos ).toHaveLength( 1 );
+  } );
 } );
 
 describe( 'modules/todos.js actions', () => {
@@ -100,5 +110,11 @@ describe( 'modules/todos.js actions', () => {
     // TODO: check url
     todos.actions.MUTATE_TODO_MARK( { commit }, newTodos );
     expect( commit ).toHaveBeenCalledWith( 'MUTATE_TODO_MARK', newTodos );
+  } );
+  it( 'test MUTATE_TODO_DELETE using a mock mutation but real store', () => {
+    let commit = jest.fn();
+    // TODO: check url
+    todos.actions.MUTATE_TODO_DELETE( { commit }, newTodos.id );
+    expect( commit ).toHaveBeenCalledWith( 'MUTATE_TODO_DELETE', newTodos.id );
   } );
 } );

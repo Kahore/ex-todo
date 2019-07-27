@@ -29,15 +29,22 @@ const mutations = {
     } else {
       state.todosCompleted.splice( idx, 1 );
     }
+  },
+  MUTATE_TODO_DELETE: ( state, payload ) => {
+    let idx = state.todos.findIndex( function ( block ) {
+      return block.id === payload;
+    } );
+    if ( idx !== -1 ) {
+      state.todos.splice( idx, 1 );
+    }
   }
-
 };
 const actions = {
   MUTATE_TODO_NEW: ( { commit }, payload ) => {
     fetch( 'http://localhost:3000/todos', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify( payload )
@@ -47,20 +54,29 @@ const actions = {
   LOAD_TODO: ( { commit } ) => {
     fetch( 'http://localhost:3000/todos', {
       method: 'GET'
-    } ).then( response => response.json() ).then( data => {
-      commit( 'LOAD_TODO', data );
-    } ).catch( error => console.error( error ) ); ;
+    } )
+      .then( response => response.json() )
+      .then( data => {
+        commit( 'LOAD_TODO', data );
+      } )
+      .catch( error => console.error( error ) );
   },
   MUTATE_TODO_MARK: ( { commit }, payload ) => {
     fetch( 'http://localhost:3000/todos/' + payload.id, {
       method: 'PUT',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify( payload )
     } );
     commit( 'MUTATE_TODO_MARK', payload );
+  },
+  MUTATE_TODO_DELETE: ( { commit }, payload ) => {
+    fetch( 'http://localhost:3000/todos/' + payload, {
+      method: 'DELETE'
+    } );
+    commit( 'MUTATE_TODO_DELETE', payload );
   }
 };
 
