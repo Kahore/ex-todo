@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "baсkend" : "json-server --routes routes.json --watch db.json"
+    "baсkend": "json-server --routes routes.json --watch db.json"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -27,6 +27,7 @@
     "babel-jest": "^23.6.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "jest-fetch-mock": "^2.1.2",
     "json-server": "^0.15.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
