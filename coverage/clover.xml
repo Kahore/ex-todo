@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1564215100288" clover="3.2.0">
-  <project timestamp="1564215100288" name="All files">
-    <metrics statements="19" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1" elements="26" coveredelements="2" complexity="0" loc="19" ncloc="19" packages="5" files="6" classes="6">
+<coverage generated="1564221054987" clover="3.2.0">
+  <project timestamp="1564221054987" name="All files">
+    <metrics statements="24" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="4" elements="33" coveredelements="14" complexity="0" loc="24" ncloc="24" packages="5" files="6" classes="6">
       <package name="src">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <file name="App.vue" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\App.vue">
@@ -18,32 +18,37 @@
         </file>
       </package>
       <package name="src.components">
-        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <file name="NewTodo.vue" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\components\NewTodo.vue">
-          <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="26" count="0" type="stmt"/>
+          <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="25" count="1" type="stmt"/>
           <line num="32" count="0" type="stmt"/>
-          <line num="38" count="32" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="44" count="32" type="stmt"/>
         </file>
       </package>
       <package name="src.store">
-        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="store.js" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\store\store.js">
-          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
           <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
           <line num="4" count="0" type="stmt"/>
-          <line num="8" count="0" type="stmt"/>
         </file>
       </package>
       <package name="src.store.modules">
-        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
         <file name="todos.js" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\store\modules\todos.js">
-          <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="4" count="0" type="stmt"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="10" count="0" type="stmt"/>
+          <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
         </file>
       </package>
       <package name="src.views">

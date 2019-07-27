@@ -1,5 +1,9 @@
-import { shallowMount } from '@vue/test-utils';
+import Vuex from 'vuex';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
 import NewTodo from '@/components/NewTodo.vue';
+
+const localVue = createLocalVue();
+localVue.use( Vuex );
 /*
  * allow Jest to access window.crypto
  */
@@ -11,12 +15,27 @@ Object.defineProperty( global.self, 'crypto', {
 } );
 
 describe( 'NewTodo.vue', () => {
+  let store;
+  // let getters;
+  let actions;
+  beforeEach( () => {
+    // getters = {
+    //   GET_ERROR: () => 'error_msg'
+    // };
+    actions = {
+      MUTATE_TODO_NEW: jest.fn()
+    };
+    store = new Vuex.Store( { actions } );
+  } );
   const wrapper = shallowMount( NewTodo, {
+    store,
+    localVue,
     attachToDocument: true
   } );
   it( 'should rise addTodo on submit', () => {
     wrapper.find( '[type=\'submit\']' ).trigger( 'click' );
     expect( wrapper.emitted( 'addTodo' ) );
+    // expect( actions.MUTATE_TODO_NEW.mock.calls.length ).toEqual( 1 );
   } );
   it( 'should generate unid', () => {
     let res = wrapper.vm._generateUNID();
