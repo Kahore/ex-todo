@@ -1,12 +1,6 @@
 {
   "todos": [
     {
-      "id": "1614cd2c-d549-4711-a345-f4db0e8463a9",
-      "title": "日本",
-      "dateExp": "2019-07-31",
-      "completed": false
-    },
-    {
       "id": "209d1879-541b-415e-9aeb-7d0285b68a9e",
       "title": "Удаление todo",
       "dateExp": "2019-07-27",
@@ -40,12 +34,18 @@
       "id": "b3018786-3b8c-4783-a884-64e7d58e9bb4",
       "title": "Add info to about page",
       "dateExp": "2019-07-28",
+      "completed": true
+    },
+    {
+      "id": "c34344d5-34c2-4e84-934b-6b568387137a",
+      "title": "styling about page",
+      "dateExp": "2019-07-31",
       "completed": false
     },
     {
-      "id": "279ba98d-81fb-4d4a-8f54-90457447fd7a",
-      "title": "中国",
-      "dateExp": "2019-07-31",
+      "id": "263d1f48-da69-49d7-a73a-707bc7bea489",
+      "title": "add filter",
+      "dateExp": "2019-07-30",
       "completed": false
     }
   ]
