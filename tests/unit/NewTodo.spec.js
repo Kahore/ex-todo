@@ -35,7 +35,12 @@ describe( 'NewTodo.vue', () => {
   it( 'should rise addTodo on submit', () => {
     wrapper.find( '[type=\'submit\']' ).trigger( 'click' );
     expect( wrapper.emitted( 'addTodo' ) );
+
     // expect( actions.MUTATE_TODO_NEW.mock.calls.length ).toEqual( 1 );
+  } );
+  it( 'should reset form after submit', () => {
+    wrapper.find( '[type=\'submit\']' ).trigger( 'click' );
+    expect( wrapper.find( '#title' ).text() ).toBe( '' );
   } );
   it( 'should generate unid', () => {
     let res = wrapper.vm._generateUNID();

@@ -65,4 +65,10 @@ input[type="checkbox"] {
 	margin: auto 0;
 	border: none;
 }
+@media screen and (max-width: 768px) {
+	#app {
+		margin-left: 0%;
+		padding: 10px;
+	}
+}
 </style>

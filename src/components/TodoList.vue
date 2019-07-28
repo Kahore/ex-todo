@@ -91,4 +91,24 @@ export default {
 		content: "×";
 	}
 }
+@media screen and (max-width: 375px) {
+	.todos-list_block {
+		&-text {
+			max-width: 130px;
+			&--right {
+				padding-right: 25px;
+			}
+		}
+	}
+}
+@media screen and (max-width: 425px) {
+	.todos-list_block {
+		font-size: 12px;
+	}
+	.btn-del {
+		width: 10px;
+		height: 0px;
+		font-size: 15px;
+	}
+}
 </style>

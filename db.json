@@ -16,13 +16,13 @@
       "id": "97139853-6ca0-4814-8231-d9e81c97d5ba",
       "title": "Reset form after submit",
       "dateExp": "2019-07-28",
-      "completed": false
+      "completed": true
     },
     {
       "id": "844c863d-3da9-48fa-a02b-d0556b885e5a",
       "title": "Media query for small screen-size",
       "dateExp": "2019-07-28",
-      "completed": false
+      "completed": true
     },
     {
       "id": "35ec66f5-dab2-4330-aeea-1ecc67116e58",
@@ -40,6 +40,12 @@
       "id": "b3018786-3b8c-4783-a884-64e7d58e9bb4",
       "title": "Add info to about page",
       "dateExp": "2019-07-28",
+      "completed": false
+    },
+    {
+      "id": "279ba98d-81fb-4d4a-8f54-90457447fd7a",
+      "title": "中国",
+      "dateExp": "2019-07-31",
       "completed": false
     }
   ]

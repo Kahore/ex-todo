@@ -48,18 +48,22 @@ const actions = {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify( payload )
-    } );
+    } ).catch( error => console.error( error ) );
     commit( 'MUTATE_TODO_NEW', payload );
   },
   LOAD_TODO: ( { commit } ) => {
-    fetch( 'http://localhost:3000/todos', {
-      method: 'GET'
-    } )
-      .then( response => response.json() )
-      .then( data => {
-        commit( 'LOAD_TODO', data );
+    try {
+      fetch( 'http://localhost:3000/todos', {
+        method: 'GET'
       } )
-      .catch( error => console.error( error ) );
+        .then( response => response.json() )
+        .then( data => {
+          commit( 'LOAD_TODO', data );
+        } )
+        .catch( error => console.error( error ) );
+    } catch ( error ) {
+      console.error( error );
+    }
   },
   MUTATE_TODO_MARK: ( { commit }, payload ) => {
     fetch( 'http://localhost:3000/todos/' + payload.id, {
