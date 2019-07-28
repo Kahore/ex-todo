@@ -8,8 +8,16 @@
 		>
 			<div :id="todo.id">
 				<input type="checkbox" :value="todo.id" @change="markComplete( todo )" v-model="completedTODO" />
-				<span class="todos-list_block-text">{{ todo.title }}</span>
+				<span class="todos-list_block-text" @dblclick="editTodo(todo)">{{ todo.title }}</span>
 				<span class="todos-list_block-text todos-list_block-text--right">{{ todo.dateExp }}</span>
+				<input
+					class="edit"
+					type="text"
+					v-model="todo.title"
+					@blur="doneEdit(todo)"
+					@keyup.enter="doneEdit(todo)"
+					@keyup.esc="cancelEdit(todo)"
+				/>
 				<button class="btn-del" @click="delTodo(todo.id)"></button>
 			</div>
 		</div>
@@ -19,11 +27,41 @@
 <script>
 export default {
 	name: "TodoList",
+	data() {
+		return {
+			onEdit: true,
+			editedTodo: null,
+			editedTitle: "",
+			editedDateExp: ""
+		};
+	},
 	methods: {
 		markComplete(todo) {
 			todo.completed = !todo.completed;
 			this.$store.dispatch("MUTATE_TODO_MARK", todo);
 		},
+		editTodo(todo) {
+			(this.tmpTitle = todo.title),
+				(this.tmpDateExp = todo.dateExp),
+				(this.editedTodo = todo);
+			console.log("TCL: editTodo -> editedTodo", this.editedTodo);
+		},
+		doneEdit: function(todo) {
+			// if (!this.editedTodo) {
+			//   return
+			// }
+			// this.editedTodo = null
+			// todo.title = todo.title.trim()
+			// if (!todo.title) {
+			//   this.removeTodo(todo)
+			// }
+		},
+
+		cancelEdit: function(todo) {
+			// this.editedTodo = null
+			// todo.title = this.beforeEditCache
+		},
+
 		delTodo(todoId) {
 			this.$store.dispatch("MUTATE_TODO_DELETE", todoId);
 		}

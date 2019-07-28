@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<form @submit.prevent="addTodo">
-			<input type="text" id="title" name="title" required v-model="title" />
+			<input type="text" id="title" name="title" reequired v-model="title" autocomplete="off" />
 			<input type="date" id="dateExp" name="dateExp" required v-model="dateExp" />
 			<input type="submit" value="Submit" class="btn" />
 		</form>
