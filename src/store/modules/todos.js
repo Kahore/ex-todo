@@ -41,7 +41,7 @@ const mutations = {
 };
 const actions = {
   MUTATE_TODO_NEW: ( { commit }, payload ) => {
-    fetch( 'http://localhost:3000/todos', {
+    fetch( 'http://localhost:3010/todos', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -53,7 +53,7 @@ const actions = {
   },
   LOAD_TODO: ( { commit } ) => {
     try {
-      fetch( 'http://localhost:3000/todos', {
+      fetch( 'http://localhost:3010/todos', {
         method: 'GET'
       } )
         .then( response => response.json() )
@@ -66,7 +66,7 @@ const actions = {
     }
   },
   MUTATE_TODO_MARK: ( { commit }, payload ) => {
-    fetch( 'http://localhost:3000/todos/' + payload.id, {
+    fetch( 'http://localhost:3010/todos/' + payload.id, {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
@@ -77,7 +77,7 @@ const actions = {
     commit( 'MUTATE_TODO_MARK', payload );
   },
   MUTATE_TODO_DELETE: ( { commit }, payload ) => {
-    fetch( 'http://localhost:3000/todos/' + payload, {
+    fetch( 'http://localhost:3010/todos/' + payload, {
       method: 'DELETE'
     } );
     commit( 'MUTATE_TODO_DELETE', payload );

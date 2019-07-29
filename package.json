@@ -7,7 +7,7 @@
 		"build": "vue-cli-service build",
 		"lint": "vue-cli-service lint",
 		"test:unit": "vue-cli-service test:unit",
-		"backend": "json-server --routes routes.json --watch db.json"
+		"backend": "json-server --routes routes.json --watch db.json --port 3010"
 	},
 	"dependencies": {
 		"core-js": "^2.6.5",

@@ -99,6 +99,15 @@ describe( 'modules/todos.js actions', () => {
     todos.actions.MUTATE_TODO_NEW( { commit }, newTodos );
     expect( commit ).toHaveBeenCalledWith( 'MUTATE_TODO_NEW', newTodos );
   } );
+
+  it( 'calls fetch with correct url', () => {
+    // const fakeFetch = url => {
+    //   expect( url ).toBe( 'http://localhost:3010/todos' );
+    //   return new Promise( function ( resolve ) {
+    //   } );
+    // };
+    // // model.fetchResponse( fakeFetch, '84102' );
+  } );
   // it( 'test LOAD_TODO using a mock mutation but real store', () => {
   //   // TODO: check url
   //   let _commit = jest.fn();
