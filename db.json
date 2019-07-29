@@ -19,12 +19,6 @@
       "completed": true
     },
     {
-      "id": "35ec66f5-dab2-4330-aeea-1ecc67116e58",
-      "title": "Edit todo",
-      "dateExp": "2019-07-28",
-      "completed": false
-    },
-    {
       "id": "9ded9390-0fa7-41f2-afd2-81bea6429c7d",
       "title": "Fix crap in page-proof below",
       "dateExp": "2019-07-28",
@@ -47,6 +41,12 @@
       "title": "add filter",
       "dateExp": "2019-07-30",
       "completed": false
+    },
+    {
+      "id": "8637aa52-f3c8-4e34-91e8-3e2918a55ecb",
+      "title": "Edit todo",
+      "dateExp": "2019-07-30",
+      "completed": true
     }
   ]
 }

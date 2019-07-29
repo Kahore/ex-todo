@@ -30,6 +30,12 @@ const mutations = {
       state.todosCompleted.splice( idx, 1 );
     }
   },
+  MUTATE_TODO_EDIT: ( state, payload ) => {
+    let idx = state.todos.findIndex( function ( block ) {
+      return block.id === payload.id;
+    } );
+    state.todos.splice( idx, 1, payload );
+  },
   MUTATE_TODO_DELETE: ( state, payload ) => {
     let idx = state.todos.findIndex( function ( block ) {
       return block.id === payload;
@@ -75,6 +81,17 @@ const actions = {
       body: JSON.stringify( payload )
     } );
     commit( 'MUTATE_TODO_MARK', payload );
+  },
+  MUTATE_TODO_EDIT: ( { commit }, payload ) => {
+    fetch( 'http://localhost:3010/todos/' + payload.id, {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify( payload )
+    } );
+    commit( 'MUTATE_TODO_EDIT', payload );
   },
   MUTATE_TODO_DELETE: ( { commit }, payload ) => {
     fetch( 'http://localhost:3010/todos/' + payload, {

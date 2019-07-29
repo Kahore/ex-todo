@@ -15,6 +15,7 @@ describe( 'TodoList.vue', () => {
   let store;
   let getters;
   let actions;
+  let mutations;
   beforeEach( () => {
     getters = {
       GET_TODOS: () => [
@@ -30,14 +31,21 @@ describe( 'TodoList.vue', () => {
           dateExp: '2019-07-27',
           completed: false
         }
-      ]
+      ],
+      GET_TODO_COMPLETED: () => ['098cf784-e75a-4d1d-b64e-d6b4fb2f3a77']
+    };
+    mutations = {
+      MUTATE_TODO_MARK: jest.fn(),
+      MUTATE_TODO_EDIT: jest.fn(),
+      MUTATE_TODO_DELETE: jest.fn()
     };
     actions = {
       LOAD_TODO: jest.fn(),
       MUTATE_TODO_MARK: jest.fn(),
+      MUTATE_TODO_EDIT: jest.fn(),
       MUTATE_TODO_DELETE: jest.fn()
     };
-    store = new Vuex.Store( { getters, actions } );
+    store = new Vuex.Store( { getters, mutations, actions } );
   } );
 
   it( 'renders a values from getters', () => {
@@ -55,8 +63,27 @@ describe( 'TodoList.vue', () => {
       localVue,
       attachToDocument: true
     } );
+    let markComplete = jest.fn();
+    wrapper.setMethods( { markComplete: markComplete } );
     wrapper.find( '[type=\'checkbox\']' ).trigger( 'click' );
-    expect( wrapper.emitted( 'markComplete' ) );
+    expect( markComplete ).toHaveBeenCalledWith( fakeData );
+    wrapper.destroy();
+  } );
+  it( 'should reverse completed on markComplete meth ', () => {
+    const wrapper = shallowMount( TodoList, {
+      store,
+      localVue,
+      attachToDocument: true
+    } );
+    wrapper.find( '[type=\'checkbox\']' ).trigger( 'click' );
+    expect( actions.MUTATE_TODO_MARK ).toBeCalled();
+    expect( actions.MUTATE_TODO_MARK.mock.calls ).toHaveLength( 1 );
+    expect(actions.MUTATE_TODO_MARK.mock.calls[0][1]).toEqual({
+      id: '098cf784-e75a-4d1d-b64e-d6b4fb2f3a88',
+      title: 'my first todo',
+      dateExp: '2019-07-27',
+      completed: false
+    });
     wrapper.destroy();
   } );
   it( 'should rise delTodo meth when click on delete btn', () => {
@@ -117,6 +144,7 @@ describe( 'TodoList.vue', () => {
     childInput.trigger( 'click' );
     childInput.trigger( 'keyup.enter' );
     expect( editDone ).toBeCalled();
+    expect( wrapper.emitted( 'MUTATE_TODO_EDIT' ) );
     wrapper.destroy();
   } );
 
@@ -153,9 +181,15 @@ describe( 'TodoList.vue', () => {
   } );
   it( 'should reset data on esc click ', () => {
     const wrapper = shallowMount( TodoList, {
-      store, localVue, attachToDocument: true
+      store,
+      localVue,
+      attachToDocument: true
     } );
-    wrapper.setData( { editedTodo: fakeData, tmpTitle: fakeData.title, tmpDateExp: fakeData.dateExp } );
+    wrapper.setData( {
+      editedTodo: fakeData,
+      tmpTitle: fakeData.title,
+      tmpDateExp: fakeData.dateExp
+    } );
     wrapper.find( '.todos-list__block_view' ).trigger( 'click' );
 
     const childInput = wrapper.find( '#editTitle' );
