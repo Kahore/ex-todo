@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1564288831250" clover="3.2.0">
-  <project timestamp="1564288831250" name="All files">
-    <metrics statements="57" coveredstatements="34" conditionals="6" coveredconditionals="5" methods="23" coveredmethods="13" elements="86" coveredelements="52" complexity="0" loc="57" ncloc="57" packages="5" files="7" classes="7">
+<coverage generated="1564411471451" clover="3.2.0">
+  <project timestamp="1564411471451" name="All files">
+    <metrics statements="65" coveredstatements="42" conditionals="6" coveredconditionals="5" methods="23" coveredmethods="13" elements="94" coveredelements="60" complexity="0" loc="65" ncloc="65" packages="5" files="7" classes="7">
       <package name="src">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <file name="App.vue" path="C:\Users\Konstantin\Desktop\Project\ex-todo\src\App.vue">
+        <file name="App.vue" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\App.vue">
           <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="14" count="0" type="stmt"/>
         </file>
-        <file name="router.js" path="C:\Users\Konstantin\Desktop\Project\ex-todo\src\router.js">
+        <file name="router.js" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\router.js">
           <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
           <line num="2" count="0" type="stmt"/>
@@ -18,8 +18,8 @@
         </file>
       </package>
       <package name="src.components">
-        <metrics statements="13" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <file name="NewTodo.vue" path="C:\Users\Konstantin\Desktop\Project\ex-todo\src\components\NewTodo.vue">
+        <metrics statements="21" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <file name="NewTodo.vue" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\components\NewTodo.vue">
           <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="14" count="1" type="stmt"/>
           <line num="21" count="0" type="stmt"/>
@@ -28,20 +28,28 @@
           <line num="30" count="0" type="stmt"/>
           <line num="34" count="32" type="stmt"/>
         </file>
-        <file name="TodoList.vue" path="C:\Users\Konstantin\Desktop\Project\ex-todo\src\components\TodoList.vue">
-          <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="24" count="1" type="stmt"/>
-          <line num="25" count="1" type="stmt"/>
-          <line num="28" count="1" type="stmt"/>
-          <line num="33" count="3" type="stmt"/>
-          <line num="37" count="3" type="stmt"/>
-          <line num="40" count="1" type="stmt"/>
-          <line num="45" count="3" type="stmt"/>
+        <file name="TodoList.vue" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\components\TodoList.vue">
+          <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="46" count="9" type="stmt"/>
+          <line num="54" count="1" type="stmt"/>
+          <line num="55" count="1" type="stmt"/>
+          <line num="58" count="1" type="stmt"/>
+          <line num="59" count="1" type="stmt"/>
+          <line num="60" count="1" type="stmt"/>
+          <line num="66" count="1" type="stmt"/>
+          <line num="75" count="1" type="stmt"/>
+          <line num="76" count="1" type="stmt"/>
+          <line num="77" count="1" type="stmt"/>
+          <line num="81" count="1" type="stmt"/>
+          <line num="86" count="9" type="stmt"/>
+          <line num="90" count="9" type="stmt"/>
+          <line num="93" count="1" type="stmt"/>
+          <line num="98" count="9" type="stmt"/>
         </file>
       </package>
       <package name="src.store">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="store.js" path="C:\Users\Konstantin\Desktop\Project\ex-todo\src\store\store.js">
+        <file name="store.js" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\store\store.js">
           <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
           <line num="2" count="0" type="stmt"/>
@@ -51,7 +59,7 @@
       </package>
       <package name="src.store.modules">
         <metrics statements="32" coveredstatements="25" conditionals="6" coveredconditionals="5" methods="16" coveredmethods="10"/>
-        <file name="todos.js" path="C:\Users\Konstantin\Desktop\Project\ex-todo\src\store\modules\todos.js">
+        <file name="todos.js" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\store\modules\todos.js">
           <metrics statements="32" coveredstatements="25" conditionals="6" coveredconditionals="5" methods="16" coveredmethods="10"/>
           <line num="1" count="1" type="stmt"/>
           <line num="5" count="1" type="stmt"/>
@@ -89,7 +97,7 @@
       </package>
       <package name="src.views">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <file name="Home.vue" path="C:\Users\Konstantin\Desktop\Project\ex-todo\src\views\Home.vue">
+        <file name="Home.vue" path="C:\Users\Rucoalsu\Desktop\Project\ex-todo\src\views\Home.vue">
           <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
           <line num="12" count="0" type="stmt"/>
           <line num="13" count="0" type="stmt"/>
