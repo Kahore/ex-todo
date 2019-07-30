@@ -22,10 +22,9 @@ export default {
         id: this._generateUNID(),
         title: this.title,
         dateExp: this.dateExp,
-        completed: false
+        completed: false,
       };
       this.$store.dispatch( 'MUTATE_TODO_NEW', newTodo );
-      // this.$emit( 'add-todo', newTodo );
       this.title = '';
       this.dateExp = '';
     },
