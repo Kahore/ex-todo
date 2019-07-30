@@ -78,12 +78,12 @@ describe( 'TodoList.vue', () => {
     wrapper.find( '[type=\'checkbox\']' ).trigger( 'click' );
     expect( actions.MUTATE_TODO_MARK ).toBeCalled();
     expect( actions.MUTATE_TODO_MARK.mock.calls ).toHaveLength( 1 );
-    expect(actions.MUTATE_TODO_MARK.mock.calls[0][1]).toEqual({
+    expect( actions.MUTATE_TODO_MARK.mock.calls[0][1] ).toEqual( {
       id: '098cf784-e75a-4d1d-b64e-d6b4fb2f3a88',
       title: 'my first todo',
       dateExp: '2019-07-27',
       completed: false
-    });
+    } );
     wrapper.destroy();
   } );
   it( 'should rise delTodo meth when click on delete btn', () => {
