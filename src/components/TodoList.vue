@@ -88,7 +88,8 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch( 'LOAD_TODO' );
+    let filter = this.$store.getters.GET_TODO_FILTER;
+    this.$store.dispatch( 'LOAD_TODO', filter );
   }
 };
 </script>

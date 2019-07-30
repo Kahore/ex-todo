@@ -1,3 +1,5 @@
 {
-  
+  "/all/": "/todos/",
+  "/inProgress/": "/todos/?completed=false",
+  "/completed/": "/todos/?completed=true"
 }

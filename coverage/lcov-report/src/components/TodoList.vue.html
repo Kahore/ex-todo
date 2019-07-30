@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>17/17</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>17/17</span>
       </div>
     </div>
   </div>
@@ -219,7 +219,8 @@
 174
 175
 176
-177</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+177
+178</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -310,6 +311,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -396,179 +398,180 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-	&lt;div class="todos-list"&gt;
-		&lt;div
-			v-for="(todo, id ) in todos"
-			:key="id"
-			class="todos-list__block"
-			:class="{ 'todos-list__block__done': todo.completed, 'todos-list__block--onEdit': todo == editedTodo }"
-			:id="todo.id"
-		&gt;
-			&lt;div class="todos-list__block_view" @dblclick="editTodo(todo)" @touchstart="editTodo(todo)"&gt;
-				&lt;input type="checkbox" :value="todo.id" @change="markComplete( todo )" v-model="completedTODO" /&gt;
-				&lt;span class="todos-list__block-text"&gt;{{ todo.title }}&lt;/span&gt;
-				&lt;span class="todos-list__block-text todos-list__block-text_right"&gt;{{ todo.dateExp }}&lt;/span&gt;
-				&lt;button class="btn-del" @click="delTodo(todo.id)"&gt;&lt;/button&gt;
-			&lt;/div&gt;
-			&lt;div class="todos-list__block_edit"&gt;
-				&lt;input
-					class="todos-list__block-text_huge"
-					id="editTitle"
-					type="text"
-					v-model.trim="todo.title"
-					required
-					@blur="editDone(todo)"
-					@keyup.enter="editDone(todo)"
-					@keyup.esc="editCancel(todo)"
-				/&gt;
-				&lt;input
-					class
-					id="editDateExp"
-					type="date"
-					required
-					v-model="todo.dateExp"
-					@blur="editDone(todo)"
-					@keyup.enter="editDone(todo)"
-					@keyup.esc="editCancel(todo)"
-				/&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
+  &lt;div class="todos-list"&gt;
+    &lt;div
+      v-for="(todo, id ) in todos"
+      :key="id"
+      class="todos-list__block"
+      :class="{ 'todos-list__block__done': todo.completed, 'todos-list__block--onEdit': todo == editedTodo }"
+      :id="todo.id"
+    &gt;
+      &lt;div class="todos-list__block_view" @dblclick="editTodo(todo)" @touchstart="editTodo(todo)"&gt;
+        &lt;input type="checkbox" :value="todo.id" @change="markComplete( todo )" v-model="completedTODO" /&gt;
+        &lt;span class="todos-list__block-text"&gt;{{ todo.title }}&lt;/span&gt;
+        &lt;span class="todos-list__block-text todos-list__block-text_right"&gt;{{ todo.dateExp }}&lt;/span&gt;
+        &lt;button class="btn-del" @click="delTodo(todo.id)"&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="todos-list__block_edit"&gt;
+        &lt;input
+          class="todos-list__block-text_huge"
+          id="editTitle"
+          type="text"
+          v-model.trim="todo.title"
+          required
+          @blur="editDone(todo)"
+          @keyup.enter="editDone(todo)"
+          @keyup.esc="editCancel(todo)"
+        /&gt;
+        &lt;input
+          class
+          id="editDateExp"
+          type="date"
+          required
+          v-model="todo.dateExp"
+          @blur="editDone(todo)"
+          @keyup.enter="editDone(todo)"
+          @keyup.esc="editCancel(todo)"
+        /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
 export default {
-	name: "TodoList",
-	data() {
-		return {
-			editedTodo: null,
-			tmpTitle: "",
-			tmpDateExp: ""
-		};
-	},
-	methods: {
-		markComplete(todo) {
-			todo.completed = !todo.completed;
-			this.$store.dispatch("MUTATE_TODO_MARK", todo);
-		},
-		editTodo(todo) {
-			this.tmpTitle = todo.title;
-			this.tmpDateExp = todo.dateExp;
-			this.editedTodo = todo;
-		},
-		editDone(todo) {
-			this.editedTodo = null;
-			this.$store.dispatch("MUTATE_TODO_EDIT", todo);
-		},
+  name: 'TodoList',
+  data () {
+    return {
+      editedTodo: null,
+      tmpTitle: '',
+      tmpDateExp: ''
+    };
+  },
+  methods: {
+    markComplete ( todo ) {
+      todo.completed = !todo.completed;
+      this.$store.dispatch( 'MUTATE_TODO_MARK', todo );
+    },
+    editTodo ( todo ) {
+      this.tmpTitle = todo.title;
+      this.tmpDateExp = todo.dateExp;
+      this.editedTodo = todo;
+    },
+    editDone ( todo ) {
+      this.editedTodo = null;
+      this.$store.dispatch( 'MUTATE_TODO_EDIT', todo );
+    },
 &nbsp;
-		editCancel(todo) {
-			this.editedTodo = null;
-			todo.title = this.tmpTitle;
-			todo.dateExp = this.tmpDateExp;
-		},
+    editCancel ( todo ) {
+      this.editedTodo = null;
+      todo.title = this.tmpTitle;
+      todo.dateExp = this.tmpDateExp;
+    },
 &nbsp;
-		delTodo(todoId) {
-			this.$store.dispatch("MUTATE_TODO_DELETE", todoId);
-		}
-	},
-	computed: {
-		todos() {
-			return this.$store.getters.GET_TODOS;
-		},
-		completedTODO: {
-			get: function() {
-				return this.$store.getters.GET_TODO_COMPLETED;
-			},
-			set: function(value) {
-				this.$emit("input", value);
-			}
-		}
-	},
-	created() {
-		this.$store.dispatch("LOAD_TODO");
-	}
+    delTodo ( todoId ) {
+      this.$store.dispatch( 'MUTATE_TODO_DELETE', todoId );
+    }
+  },
+  computed: {
+    todos () {
+      return this.$store.getters.GET_TODOS;
+    },
+    completedTODO: {
+      get: function () {
+        return this.$store.getters.GET_TODO_COMPLETED;
+      },
+      set: function ( value ) {
+        this.$emit( 'input', value );
+      }
+    }
+  },
+  created () {
+    let filter = this.$store.getters.GET_TODO_FILTER;
+    this.$store.dispatch( 'LOAD_TODO', filter );
+  }
 };
 &lt;/script&gt;
 &nbsp;
 &lt;!-- Add "scoped" attribute to limit CSS to this component only --&gt;
 &lt;style scoped lang="scss"&gt;
 .todos-list__block {
-	position: relative;
-	font-size: 24px;
-	border-bottom: 1px solid #ededed;
-	text-align: left;
-	&amp;:hover {
-		background: lighten($color: darkgray, $amount: 30%);
-		&amp; .btn-del {
-			display: inline-block;
-		}
-	}
-	&amp;-text {
-		display: inline-flex;
-		word-break: break-word;
-		transition: color 0.4s;
-		max-width: 260px;
-		margin-left: 40px;
-		&amp;_right {
-			float: right;
-			padding-right: 60px;
-		}
-		&amp;_huge {
-			width: 55%;
-		}
-	}
-	&amp;_edit {
-		display: none;
-	}
-	&amp;__done {
-		text-decoration: line-through;
-	}
-	&amp;--onEdit .todos-list__block_view {
-		display: none;
-	}
-	&amp;--onEdit .todos-list__block_edit {
-		display: flex;
-	}
+  position: relative;
+  font-size: 24px;
+  border-bottom: 1px solid #ededed;
+  text-align: left;
+  &amp;:hover {
+    background: lighten($color: darkgray, $amount: 30%);
+    &amp; .btn-del {
+      display: inline-block;
+    }
+  }
+  &amp;-text {
+    display: inline-flex;
+    word-break: break-word;
+    transition: color 0.4s;
+    max-width: 260px;
+    margin-left: 40px;
+    &amp;_right {
+      float: right;
+      padding-right: 60px;
+    }
+    &amp;_huge {
+      width: 55%;
+    }
+  }
+  &amp;_edit {
+    display: none;
+  }
+  &amp;__done {
+    text-decoration: line-through;
+  }
+  &amp;--onEdit .todos-list__block_view {
+    display: none;
+  }
+  &amp;--onEdit .todos-list__block_edit {
+    display: flex;
+  }
 }
 &nbsp;
 .btn-del {
-	display: none;
-	position: absolute;
-	right: 10px;
-	width: 40px;
-	height: 40px;
-	margin: auto 0;
-	font-size: 30px;
-	color: #cc9a9a;
-	-webkit-transition: color 0.2s ease-out;
-	transition: color 0.2s ease-out;
-	&amp;:hover {
-		color: #af5b5e;
-		cursor: pointer;
-	}
-	&amp;:after {
-		content: "×";
-	}
+  display: none;
+  position: absolute;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: #cc9a9a;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+  &amp;:hover {
+    color: #af5b5e;
+    cursor: pointer;
+  }
+  &amp;:after {
+    content: "×";
+  }
 }
 @media screen and (max-width: 375px) {
-	.todos-list__block {
-		&amp;-text {
-			max-width: 130px;
-			&amp;_right {
-				padding-right: 25px;
-			}
-		}
-	}
+  .todos-list__block {
+    &amp;-text {
+      max-width: 130px;
+      &amp;_right {
+        padding-right: 25px;
+      }
+    }
+  }
 }
 @media screen and (max-width: 425px) {
-	.todos-list__block {
-		font-size: 12px;
-	}
-	.btn-del {
-		width: 10px;
-		height: 0px;
-		font-size: 15px;
-	}
+  .todos-list__block {
+    font-size: 12px;
+  }
+  .btn-del {
+    width: 10px;
+    height: 0px;
+    font-size: 15px;
+  }
 }
 &lt;/style&gt;
 &nbsp;</pre></td></tr>
@@ -577,7 +580,7 @@ export default {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 30 2019 00:57:29 GMT+0800 (Красноярское время (зима))
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 30 2019 13:20:56 GMT+0700 (Krasnoyarsk Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">65.79% </span>
+        <span class="strong">75.61% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>25/38</span>
+        <span class='fraction'>31/41</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">83.33% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>5/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55.56% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>10/18</span>
+        <span class='fraction'>14/21</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">67.57% </span>
+        <span class="strong">77.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>25/37</span>
+        <span class='fraction'>31/40</span>
       </div>
     </div>
   </div>
@@ -151,11 +151,27 @@
 106
 107
 108
-109</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -176,6 +192,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -184,9 +203,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -210,12 +230,16 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -235,7 +259,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -243,7 +267,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -261,7 +285,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const state = <span class="fstat-no" title="function not covered" >()</span> =&gt; ( <span class="cstat-no" title="statement not covered" >{</span>
   todos: [],
-  todosCompleted: []
+  todosCompleted: [],
+  filterBy: 'all'
 } );
 const getters = {
   GET_TODOS: state =&gt; {
@@ -269,6 +294,9 @@ const getters = {
   },
   GET_TODO_COMPLETED: state =&gt; {
     return state.todosCompleted;
+  },
+  GET_TODO_FILTER: state =&gt; {
+    return state.filterBy;
   }
 };
 const mutations = {
@@ -283,6 +311,9 @@ const mutations = {
       }
     }
   },
+  MUTATE_TODO_FILTER: ( state, payload ) =&gt; {
+    state.filterBy = payload;
+  },
   MUTATE_TODO_MARK: ( state, payload ) =&gt; {
     let idx = state.todosCompleted.indexOf( payload.id );
     if ( idx === -1 ) {
@@ -291,10 +322,11 @@ const mutations = {
       state.todosCompleted.splice( idx, 1 );
     }
   },
-  MUTATE_TODO_EDIT: <span class="fstat-no" title="function not covered" >( </span>state, payload ) =&gt; {
-    let idx = <span class="cstat-no" title="statement not covered" >state.todos.indexOf( payload.id );</span>
-<span class="cstat-no" title="statement not covered" >    state.todos.splice( idx, 1 );</span>
-<span class="cstat-no" title="statement not covered" >    state.todos.push( payload );</span>
+  MUTATE_TODO_EDIT: ( state, payload ) =&gt; {
+    let idx = state.todos.findIndex( <span class="fstat-no" title="function not covered" >fu</span>nction ( block ) {
+<span class="cstat-no" title="statement not covered" >      return block.id === payload.id;</span>
+    } );
+    state.todos.splice( idx, 1, payload );
   },
   MUTATE_TODO_DELETE: ( state, payload ) =&gt; {
     let idx = state.todos.findIndex( function ( block ) {
@@ -317,14 +349,18 @@ const actions = {
     } ).catch( <span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.error( error ) </span>);
     commit( 'MUTATE_TODO_NEW', payload );
   },
-  LOAD_TODO: <span class="fstat-no" title="function not covered" >( </span>{ commit } ) =&gt; {
+  // MUTATE_TODO_FILTER: ( { commit }, payload ) =&gt; {
+  //   commit( 'MUTATE_TODO_FILTER', payload );
+  // },
+  LOAD_TODO: <span class="fstat-no" title="function not covered" >( </span>{ commit }, payload ) =&gt; {
 <span class="cstat-no" title="statement not covered" >    try {</span>
-<span class="cstat-no" title="statement not covered" >      fetch( 'http://localhost:3010/todos', {</span>
+<span class="cstat-no" title="statement not covered" >      fetch( 'http://localhost:3010/' + payload, {</span>
         method: 'GET'
       } )
         .then( <span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json() </span>)
         .then( <span class="fstat-no" title="function not covered" >da</span>ta =&gt; {
 <span class="cstat-no" title="statement not covered" >          commit( 'LOAD_TODO', data );</span>
+<span class="cstat-no" title="statement not covered" >          commit( 'MUTATE_TODO_FILTER', payload );</span>
         } )
         .catch( <span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.error( error ) </span>);
     } catch ( error ) {
@@ -342,8 +378,8 @@ const actions = {
     } );
     commit( 'MUTATE_TODO_MARK', payload );
   },
-  MUTATE_TODO_EDIT: <span class="fstat-no" title="function not covered" >( </span>{ commit }, payload ) =&gt; {
-<span class="cstat-no" title="statement not covered" >    fetch( 'http://localhost:3010/todos/' + payload.id, {</span>
+  MUTATE_TODO_EDIT: ( { commit }, payload ) =&gt; {
+    fetch( 'http://localhost:3010/todos/' + payload.id, {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
@@ -351,7 +387,7 @@ const actions = {
       },
       body: JSON.stringify( payload )
     } );
-<span class="cstat-no" title="statement not covered" >    commit( 'MUTATE_TODO_EDIT', payload );</span>
+    commit( 'MUTATE_TODO_EDIT', payload );
   },
   MUTATE_TODO_DELETE: ( { commit }, payload ) =&gt; {
     fetch( 'http://localhost:3010/todos/' + payload, {
@@ -373,7 +409,7 @@ export default {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 30 2019 00:57:29 GMT+0800 (Красноярское время (зима))
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 30 2019 13:20:56 GMT+0700 (Krasnoyarsk Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

@@ -13,7 +13,8 @@ beforeEach( () => {
   store = new Vuex.Store( {
     state: {
       todos: [],
-      todosCompleted: []
+      todosCompleted: [],
+      filterBy: 'all'
     },
     mutations: {
       MUTATE_TODO_NEW: todos.mutations.MUTATE_TODO_NEW
@@ -32,6 +33,9 @@ describe( 'modules/todos.js getters', () => {
     expect( todos.getters.GET_TODO_COMPLETED( store.state ) ).toBe(
       store.state.todosCompleted
     );
+  } );
+  it( 'should return String of current filter', () => {
+    expect( todos.getters.GET_TODO_FILTER( store.state ) ).toBe( store.state.filterBy );
   } );
 } );
 
@@ -82,6 +86,20 @@ describe( 'modules/todos.js mutations', () => {
     todos.mutations.MUTATE_TODO_MARK( store.state, newTodos );
     expect( store.state.todosCompleted ).toHaveLength( 0 );
   } );
+  it( 'should push todo to todosCompleted if cmpl is true', () => {
+    todos.mutations.MUTATE_TODO_FILTER( store.state, 'completed' );
+    expect( store.state.filterBy ).toBe( 'completed' );
+  } );
+
+  it( 'should update todo to todos', () => {
+    todos.mutations.MUTATE_TODO_EDIT( store.state, {
+      id: '098cf784-e75a-4d1d-b64e-d6b4fb2f3a77',
+      title: 'my edited first todo',
+      dateExp: '2019-07-27',
+      completed: false
+    } );
+    expect( store.state.todos ).toHaveLength( 1 );
+  } );
   it( 'should remove todo from to todos', () => {
     todos.mutations.LOAD_TODO( store.state, TODOS_LOAD );
     todos.mutations.MUTATE_TODO_DELETE(
@@ -119,6 +137,12 @@ describe( 'modules/todos.js actions', () => {
     // TODO: check url
     todos.actions.MUTATE_TODO_MARK( { commit }, newTodos );
     expect( commit ).toHaveBeenCalledWith( 'MUTATE_TODO_MARK', newTodos );
+  } );
+  it( 'test MUTATE_TODO_EDIT using a mock mutation but real store', () => {
+    let commit = jest.fn();
+    // TODO: check url
+    todos.actions.MUTATE_TODO_EDIT( { commit }, newTodos );
+    expect( commit ).toHaveBeenCalledWith( 'MUTATE_TODO_EDIT', newTodos );
   } );
   it( 'test MUTATE_TODO_DELETE using a mock mutation but real store', () => {
     let commit = jest.fn();

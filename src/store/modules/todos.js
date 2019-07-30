@@ -1,6 +1,7 @@
 const state = () => ( {
   todos: [],
-  todosCompleted: []
+  todosCompleted: [],
+  filterBy: 'all'
 } );
 const getters = {
   GET_TODOS: state => {
@@ -8,6 +9,9 @@ const getters = {
   },
   GET_TODO_COMPLETED: state => {
     return state.todosCompleted;
+  },
+  GET_TODO_FILTER: state => {
+    return state.filterBy;
   }
 };
 const mutations = {
@@ -21,6 +25,9 @@ const mutations = {
         state.todosCompleted.push( payload[i].id );
       }
     }
+  },
+  MUTATE_TODO_FILTER: ( state, payload ) => {
+    state.filterBy = payload;
   },
   MUTATE_TODO_MARK: ( state, payload ) => {
     let idx = state.todosCompleted.indexOf( payload.id );
@@ -57,14 +64,15 @@ const actions = {
     } ).catch( error => console.error( error ) );
     commit( 'MUTATE_TODO_NEW', payload );
   },
-  LOAD_TODO: ( { commit } ) => {
+  LOAD_TODO: ( { commit }, payload ) => {
     try {
-      fetch( 'http://localhost:3010/todos', {
+      fetch( 'http://localhost:3010/' + payload, {
         method: 'GET'
       } )
         .then( response => response.json() )
         .then( data => {
           commit( 'LOAD_TODO', data );
+          commit( 'MUTATE_TODO_FILTER', payload );
         } )
         .catch( error => console.error( error ) );
     } catch ( error ) {

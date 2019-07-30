@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <todo-filter/>
     <new-todo/>
     <todo-list/>
   </div>
@@ -9,6 +10,7 @@
 export default {
   name: 'home',
   components: {
+    'todo-filter': () => import( '@/components/Filter.vue' ),
     'new-todo': () => import( '@/components/NewTodo.vue' ),
     'todo-list': () => import( '@/components/TodoList.vue' )
   }

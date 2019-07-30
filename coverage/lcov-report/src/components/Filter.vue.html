@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/components/NewTodo.vue</title>
+    <title>Code coverage report for src/components/Filter.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> NewTodo.vue
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> Filter.vue
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/6</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,16 +32,16 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/6</span>
+        <span class='fraction'>2/2</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -91,21 +91,7 @@
 46
 47
 48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+49</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -114,39 +100,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">32x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,64 +140,50 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;section&gt;
-    &lt;form @submit.prevent="addTodo"&gt;
-      &lt;input type="text" id="title" name="title" reequired v-model.trim="title" autocomplete="off" /&gt;
-      &lt;input type="date" id="dateExp" name="dateExp" required v-model="dateExp" /&gt;
-      &lt;input type="submit" value="Submit" class="btn" /&gt;
-    &lt;/form&gt;
+  &lt;section class="filter"&gt;
+    &lt;button
+      class="filter-item"
+      :class="{ active: filtedBy === 'all' }"
+      @click="filterIt('all')"&gt;All&lt;/button&gt;
+    &lt;button
+      class="filter-item"
+      :class="{ active: filtedBy === 'inProgress' }"
+      @click="filterIt('inProgress')"&gt;In progress&lt;/button&gt;
+    &lt;button
+      class="filter-item"
+      :class="{ active: filtedBy === 'completed' }"
+      @click="filterIt('completed')"&gt;Completed&lt;/button&gt;
   &lt;/section&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
 export default {
-  data () {
-    return {
-      title: '',
-      dateExp: ''
-    };
+  name: 'TodoFilter',
+  computed: {
+    filtedBy() {
+       return this.$store.getters.GET_TODO_FILTER;
+    }
   },
   methods: {
-    addTodo () {
-<span class="cstat-no" title="statement not covered" >      const newTodo = {</span>
-        id: this._generateUNID(),
-        title: this.title,
-        dateExp: this.dateExp,
-        completed: false
-      };
-<span class="cstat-no" title="statement not covered" >      this.$store.dispatch( 'MUTATE_TODO_NEW', newTodo );</span>
-      // this.$emit( 'add-todo', newTodo );
-<span class="cstat-no" title="statement not covered" >      this.title = '';</span>
-<span class="cstat-no" title="statement not covered" >      this.dateExp = '';</span>
-    },
-    _generateUNID () {
-      /* eslint-disable-next-line */
-      return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =&gt;
-        (
-          c ^
-          ( crypto.getRandomValues( new Uint8Array( 1 ) )[0] &amp; ( 15 &gt;&gt; ( c / 4 ) ) )
-        ).toString( 16 )
-      );
+    filterIt ( filterBy ) {
+      this.$store.dispatch( 'LOAD_TODO', filterBy )
     }
   }
 };
 &lt;/script&gt;
 &nbsp;
-&lt;style scoped&gt;
-form {
-  display: flex;
-}
-input[type="text"] {
-  flex: 10;
-  padding: 5px;
-}
-input[type="submit"] {
-  flex: 2;
-}
-@media screen and (max-width: 375px) {
-  form {
-    display: grid;
-    padding-bottom: 10px;
+&lt;style lang="scss" scoped&gt;
+.filter {
+  &amp;-item{
+    margin:3px;
+    padding: 3px;
+    border: 1px solid transparent;
+    &amp;:hover  {
+      border-color:  lighten($color: darkgray, $amount: 30%);
+    }
+    &amp;.active {
+      border-color:  lighten($color: darkgray, $amount: 10%);
+    }
   }
 }
 &lt;/style&gt;
