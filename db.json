@@ -40,11 +40,23 @@
       "id": "263d1f48-da69-49d7-a73a-707bc7bea489",
       "title": "add filter",
       "dateExp": "2019-07-30",
-      "completed": false
+      "completed": true
     },
     {
       "id": "8637aa52-f3c8-4e34-91e8-3e2918a55ecb",
       "title": "Edit todo",
+      "dateExp": "2019-07-30",
+      "completed": true
+    },
+    {
+      "id": "0b4fa074-53fd-4b39-b902-6d67bfd0d020",
+      "title": "opera test",
+      "dateExp": "2019-07-30",
+      "completed": true
+    },
+    {
+      "id": "f7c4e8a8-44b6-498c-ad53-24200428e445",
+      "title": "fix page-proofs for small screen size",
       "dateExp": "2019-07-30",
       "completed": true
     }

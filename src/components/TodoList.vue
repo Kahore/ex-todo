@@ -164,7 +164,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 546px) {
   .todos-list__block {
     font-size: 12px;
   }
